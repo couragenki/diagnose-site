@@ -2,7 +2,7 @@
     <div>
         <PageTemplate>
             <h2>ステップ１自分の中の欲望を知る</h2>
-            <nuxt-link to="/want-to-do/step2" :click="setLocalStorage">
+            <nuxt-link to="/want-to-do/step2">
                 <div>
                     step2へ
                 </div>
@@ -17,9 +17,5 @@ export default {
     components: {
         PageTemplate,
     },
-    mounted:{
-    },
-    methods: {
-    }
 }
 </script>
