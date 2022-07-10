@@ -20,6 +20,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.PageTemplate {
-}
 </style>
