@@ -1,9 +1,10 @@
 <template>
     <div>
         <PageTemplate>
-            <nuxt-link to="/want-to-do/">
+            <h2>ステップ１自分の中の欲望を知る</h2>
+            <nuxt-link to="/want-to-do/step2" :click="setLocalStorage">
                 <div>
-                    やりたいこと掘り出しサイト
+                    step2へ
                 </div>
             </nuxt-link>
         </PageTemplate>
@@ -12,9 +13,13 @@
 <script>
 import PageTemplate from '~/src/components/PageTemplate/indev.vue'
 export default {
-    title: 'Pages/Index',
+    title: 'Pages/Want-To-Do',
     components: {
         PageTemplate,
+    },
+    mounted:{
+    },
+    methods: {
     }
 }
 </script>

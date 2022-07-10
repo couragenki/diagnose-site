@@ -1,9 +1,10 @@
 <template>
     <div>
         <PageTemplate>
+            <h2>ステップ2</h2>
             <nuxt-link to="/want-to-do/">
                 <div>
-                    やりたいこと掘り出しサイト
+                    ステップ3へ
                 </div>
             </nuxt-link>
         </PageTemplate>
@@ -12,7 +13,7 @@
 <script>
 import PageTemplate from '~/src/components/PageTemplate/indev.vue'
 export default {
-    title: 'Pages/Index',
+    title: 'Pages/Want-To-Do',
     components: {
         PageTemplate,
     }
