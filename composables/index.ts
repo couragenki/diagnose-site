@@ -6,19 +6,25 @@ export const useFoo = () => {
 };
 
 export const wantToDoStep1 = () => {
-    const want = useState("step1", () => []);
+    // const want = useState("step1", () => []);
 
-    // const want = useState("step1", () => [
-    //   { text: "やりたいこと" },
-    //   { text: "やりたいこと" },
-    // ]);
+    const want = useState("step1", () => [
+      { text: "やってみたいこと" },
+      { text: "やってみたいこと" },
+    ]);
 
     const updateWant = (want: Ref<any>) => (value: any) => {
       want.value = value;
     };
 
+    const removeItem = (want: Ref<any>) => (index: number) => {
+        console.log(want, index);
+        want.value[index].splice(index, 1);
+    };
+    
     return {
-      want: readonly(want),
+      want: want,
       updateWant: updateWant(want),
+      removeItem
     };
 }

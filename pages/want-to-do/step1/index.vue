@@ -9,21 +9,17 @@
             </nuxt-link>
 
             
-            <div>
+            <!-- <div>
                 {{count}}
-            </div>
+            </div> -->
 
             <div>
-                {{want}}
+                {{want}}<br />want<br />
             </div>
 
-            <div>
-                {{test}}
-            </div>
-
-            <div v-for="(item, index) in test" :key="index">
+            <div v-for="(item, index) in want" :key="index">
                 <div>
-                    <input type="text" v-model="test[index].text" placeholder="思いついたことを書こう" @keypress="updateText(index, message)" />
+                    <input type="text" v-model="want[index].text" placeholder="思いついたことを書こう" @keypress="updateText(index, message)" />
                     {{index}}
                     <button @click="doRemove(index)">削除</button>
                 </div>
@@ -51,21 +47,16 @@ export default {
     components: {
         PageTemplate,
     },
-    data() {
-        return {
-            test:[{text: 'やりたいこと'},{text: 'やりたいこと'}]
-        }
-    },
     methods:{
         addItem(){
-            this.test.push({text: 'やりたいこと'})
+            this.want.push({text: 'やりたいこと'})
         },
         doRemove(index){
-            this.test.splice(index, 1)
+            this.want.splice(index, 1)
         },
         updateText(index, text){
             console.log(index, text)
-            this.test[index].text = text
+            this.want[index].text = text
         }
     }
 }
