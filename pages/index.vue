@@ -10,10 +10,12 @@
             {{ foo }}
 
             <div>Count:{{ count }}</div>
+
             <div>
                 <button @click="() => inc()">increase</button>
                 <button @click="() => dec()">decrease</button>
             </div>
+            
         </PageTemplate>
     </div>
 </template>
