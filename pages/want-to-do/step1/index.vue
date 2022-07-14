@@ -33,9 +33,6 @@
 </template>
 
 <script setup>
-    const foo = useFoo()
-    import { useCounter } from '~/composables/useCounter';
-    const { count, inc, dec } = useCounter();
     const { want, updateWant } = wantToDoStep1();
 </script>
 
