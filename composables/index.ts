@@ -6,7 +6,6 @@ export const useFoo = () => {
 };
 
 export const wantToDoStep1 = () => {
-    // const want = useState("step1", () => []);
 
     const want = useState("step1", () => [
       { text: "やってみたいこと" },
@@ -29,3 +28,36 @@ export const wantToDoStep1 = () => {
       removeItem
     };
 }
+
+export const wantToDoStep2 = () => {
+  const admire = useState("step2", () => [
+    { person: "", reason: "" },
+    { person: "", reason: "" },
+    { person: "", reason: "" },
+  ]);
+
+  const updateAdmire = (admire: Ref<any>) => (value: any) => {
+    admire = value;
+  };
+
+  const updatePerson = (admire: Ref<any>) => (index: number, value: any) => {
+    admire.value[index].person = value;
+  };
+
+  const updateReason = (admire: Ref<any>) => (index: number, value: any) => {
+    admire.value[index].reason = value;
+  };
+
+  const removeItem = (admire: Ref<any>) => (index: number) => {
+    console.log(admire, index);
+    admire.value[index].splice(index, 1);
+  };
+
+  return {
+    admire: admire,
+    updateAdmire: updateAdmire(admire),
+    updatePerson: updatePerson(admire),
+    updateReason: updateReason(admire),
+    removeItem,
+  };
+};
