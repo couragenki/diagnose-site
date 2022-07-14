@@ -14,7 +14,8 @@ export const wantToDoStep1 = () => {
     ]);
 
     const updateWant = (want: Ref<any>) => (value: any) => {
-      want.value = value;
+        console.log(want);
+        want = value;
     };
 
     const removeItem = (want: Ref<any>) => (index: number) => {

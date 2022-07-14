@@ -20,9 +20,7 @@
                 </div>
             </div>
 
-            
-
-            <nuxt-link to="/want-to-do/step2" @click="updateWant(test)">
+            <nuxt-link to="/want-to-do/step2" @click="updateWant(want)">
                 <div>
                     やりたいことの入力を完了してstep2へ進む⇨
                 </div>
