@@ -6,25 +6,25 @@
                 まずは自分の心の中にあるやりたいことを書き出してみよう。
             </p>
 
-            <div v-for="(item, index) in want" :key="index" class="cards">
-                <div class="item">
-                    <input id="text" type="text" v-model="want[index].text" placeholder="思いついたことを書こう" @keypress="updateText(index, message)" />
-                    <div class="text_underline"></div>
-                    <button class="delete" @click="doRemove(index)">X
-
-                    </button>
-                </div>
-            </div>
-
-            <div>
-                <button @click="addItem">
-                    追加
+            <div class="add-button-wrappr">
+                <button class="add-button" @click="addItem">
+                    項目を追加
                 </button>
             </div>
 
+            <div class="cards">
+                <div class="item" v-for="(item, index) in want" :key="index" >
+                    <input id="text" type="text" v-model="want[index].text" placeholder="思いついたことを書こう" @keydown="updateText(index, want[index].text)" />
+                    <div class="text_underline"></div>
+                    <button class="delete" @click="doRemove(index)">X</button>
+                </div>
+            </div>
+
+            
+
             <nuxt-link to="/want-to-do/step2" @click="updateWant(test)">
                 <div>
-                    step2へ
+                    やりたいことの入力を完了してstep2へ進む⇨
                 </div>
             </nuxt-link>
 
@@ -42,7 +42,7 @@
 <script>
 import PageTemplate from '~/src/components/PageTemplate/indev.vue'
 export default {
-    title: 'Pages/Want-To-Do',
+    title: 'Pages/Want-To-Do/Step1',
     components: {
         PageTemplate,
     },
@@ -54,20 +54,29 @@ export default {
             this.want.splice(index, 1)
         },
         updateText(index, text){
-            console.log(index, text)
+            console.log(index, text, 'updateText')
             this.want[index].text = text
         }
     }
 }
 </script>
 <style lang="scss" scoped>
+.add-button-wrappr {
+    padding: 30px;
+    .add-button {
+        width: 100px;
+        height: 50px;
+        display: block;
+    }
+}
 .cards {
     display: flex;
-    min-height: 300px;
+    flex-wrap: wrap;
     .item {
         position: relative;
         width: 30%;
-        display: block;
+        padding-left: 2%;
+        padding-bottom: 3%;
         #text {
             font-size: 16px;
             width: 100%;
